@@ -24,6 +24,7 @@ class Calculator
 
   private
 
+  # Validate numbers against negatives
   def validate_numbers
     negative_numbers = numbers.select { |n| n < 0 }
 
@@ -34,6 +35,7 @@ class Calculator
     sum = 0
 
     numbers.each do |number|
+      # Ignore numbers greater than 1000
       next if number.to_i > 1000
 
       sum += number

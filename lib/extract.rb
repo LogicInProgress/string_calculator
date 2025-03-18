@@ -32,15 +32,19 @@ class Extract
 
     if string.start_with?("//[")
       delimiters = []
+
+      # Fetch delimiter section from string
       delimiter_section = string_with_delimiter.first.split("//").last
       
       delimiter_section.chars.each do |delimiter|
         next if delimiter == "[" || delimiter == "]"
 
+        # Store custom delimiter
         delimiters.push(delimiter)
       end
 
       numbers = []
+      # Loop through rest of of the sections apart from delimiter
       string_with_delimiter[1..].join("").chars.each do |string|
         next if delimiters.include?(string) || string == "\n"
 
